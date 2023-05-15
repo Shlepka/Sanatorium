@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище SanatoriumModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="DoctorId" />
+    </Key>
+    <Property Name="DoctorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorSurname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DoctorPatronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Speciality" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="PatientId" />
+    </Key>
+    <Property Name="PatientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientSurname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PatientName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PatientPatronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ArrivalDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="DepartureDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="Visit" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Procedur">
+    <Key>
+      <PropertyRef Name="ProcedureId" />
+    </Key>
+    <Property Name="ProcedureId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProcedureName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProcedureDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatientName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DoctorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CabinetNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Хранилище SanatoriumModelContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procedur" EntityType="Self.Procedur" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
